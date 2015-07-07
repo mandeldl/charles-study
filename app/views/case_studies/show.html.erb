@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @case_study.title %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @case_study.url %>
+</p>
+
+<p>
+  <strong>Github:</strong>
+  <%= @case_study.github %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @case_study.description %>
+</p>
+
+<p>
+  <strong>Updates:</strong>
+  <%= @case_study.updates %>
+</p>
+
+<%= link_to 'Edit', edit_case_study_path(@case_study) %> |
+<%= link_to 'Back', case_studies_path %>
