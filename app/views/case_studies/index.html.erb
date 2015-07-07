@@ -1,33 +1,66 @@
-<h1>Listing case_studies</h1>
+<header class="siteHeader container clearfix">
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Url</th>
-      <th>Github</th>
-      <th>Description</th>
-      <th>Updates</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="masthead">
+    <div class="container">
+      <h2 class="masthead-title kilo">The Charles Case Studies</h2>
+    </div>
+  </div>
+<header>
+  <main class="siteContent container">
+    <div class="row gutters">
+      <% @case_studies.each do |case_study| %>
+      <div class="column-4">
+        <h3><%= case_study.title %></h3>
+        <td><%= link_to 'Show', case_study, class: "btn bg-green" %></td>
+        <td><%= link_to 'Edit', edit_case_study_path(case_study), class: "btn bg-yellow" %></td>
+        <td><%= link_to 'Destroy', case_study, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn bg-red" %></td>
+        <h4>Description</h4>
+        <p><%= case_study.description %></p>
+        <h5>Updates:</h5>
+        <p><%= case_study.updates %></p>
 
-  <tbody>
-    <% @case_studies.each do |case_study| %>
-      <tr>
-        <td><%= case_study.title %></td>
-        <td><%= case_study.url %></td>
-        <td><%= case_study.github %></td>
-        <td><%= case_study.description %></td>
-        <td><%= case_study.updates %></td>
-        <td><%= link_to 'Show', case_study %></td>
-        <td><%= link_to 'Edit', edit_case_study_path(case_study) %></td>
-        <td><%= link_to 'Destroy', case_study, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <a href="<%= case_study.url %>" class="btn bg-black">Visit Homepage &raquo;</a>
+        <a href="<%= case_study.github %>" class="btn bg-gray">Visit GitHub &raquo;</a>
+      </div>
+      <% end %>
+    </div>
+    <%= link_to 'Add a Case Study', new_case_study_path, class:"btn bg-blue btn-large" %>
+  </main>
 
-<br>
+  <footer class="siteFooter container">
+    <p>Copyright &copy; 2015 David Mandel for The Charles</p>
+  </footer>
 
-<%= link_to 'New Case study', new_case_study_path %>
+  <!-- BEGINNING OF DEFAULTS     
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Url</th>
+          <th>Github</th>
+          <th>Description</th>
+          <th>Updates</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <% @case_studies.each do |case_study| %>
+          <tr>
+            <td><%= case_study.title %></td>
+            <td><%= case_study.url %></td>
+            <td><%= case_study.github %></td>
+            <td><%= case_study.description %></td>
+            <td><%= case_study.updates %></td>
+            <td><%= link_to 'Show', case_study %></td>
+            <td><%= link_to 'Edit', edit_case_study_path(case_study) %></td>
+            <td><%= link_to 'Destroy', case_study, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+    <br>
+    
+    <%= link_to 'Add a Case Study', new_case_study_path, class:"btn bg-blue btn-large" %>
+    END OF DEFAULTS -->
